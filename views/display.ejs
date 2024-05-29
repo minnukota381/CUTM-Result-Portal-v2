@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result | CUTM </title>
+    <link rel="icon" type="image/x-icon" href="/static/favblue.png">
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/display.css">
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/">
+                    <img src="/static/cutm.png" alt="Logo" height="100">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#footer">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/admin_login">Admin</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/about">About</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <% if (message) { %>
+            <p><%= message %></p>
+        <% } else { %>
+            <h1 class="mb-4">Result</h1>
+
+            <% if (result && result.length > 0) { %>
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        <strong>Registration Number:</strong> <%= result[0].Reg_No %>
+                    </div>
+                    <div class="col-md-6">
+                        <strong>Name:</strong> <%= result[0].Name %>
+                    </div>
+                </div>
+
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        <strong>Semester:</strong> <%= result[0].Sem %>
+                    </div>
+                    <div class="col-md-6">
+                        <strong>Number of Subjects:</strong> <%= count %>
+                    </div>
+                </div>
+
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        <% if (sgpa !== null) { %>
+                            <p><strong>SGPA:</strong> <%= sgpa.toFixed(2) %></p>
+                        <% } %>
+                    </div>
+                    <div class="col-md-6">
+                        <% if (cgpa !== null) { %>
+                            <p><strong>CGPA:</strong> <%= cgpa.toFixed(2) %></p>
+                        <% } %>
+                    </div>
+                </div>
+
+                <div class="table-container">
+                    <table class="table table-striped table-bordered">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th class="text-center">Subject Code</th>
+                                <th class="text-center">Subject Name</th>
+                                <th class="text-center">Credits</th>
+                                <th class="text-center">Grade</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% result.forEach(row => { %>
+                                <tr>
+                                    <td><%= row.Subject_Code %></td>
+                                    <td class="text-center" style="font-weight: bold"><%= row.Subject_Name %></td>
+                                    <td class="text-center"><%= row.Credits %></td>
+                                    <td class="text-center" style="font-weight: bold"><%= row.Grade %></td>
+                                </tr>
+                            <% }) %>
+                        </tbody>
+                    </table>
+                </div>
+            <% } %>
+        <% } %>
+    </div>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const navbarToggler = document.querySelector(".navbar-toggler");
+            const navbarCollapse = document.querySelector(".navbar-collapse");
+
+            navbarToggler.addEventListener("click", function() {
+                navbarCollapse.classList.toggle("show");
+            });
+
+            const navLinks = document.querySelectorAll(".navbar-nav .nav-link");
+            navLinks.forEach(link => {
+                link.addEventListener("click", function() {
+                    navbarCollapse.classList.remove("show");
+                });
+            });
+        });
+    </script>
+</body>
+</html>
