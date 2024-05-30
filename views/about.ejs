@@ -16,39 +16,14 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
     <title>About Us</title>
-    <link rel="icon" type="image/x-icon" href="/static/about.png">
+    <link rel="icon" type="image/x-icon" href="/images/about.png">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/css/about.css">
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const navbarToggler = document.querySelector(".navbar-toggler");
-            const navbarCollapse = document.querySelector(".navbar-collapse");
-
-            navbarToggler.addEventListener("click", function () {
-                navbarCollapse.classList.toggle("show");
-            });
-
-            const navLinks = document.querySelectorAll(".navbar-nav .nav-link");
-            navLinks.forEach(link => {
-                link.addEventListener("click", function () {
-                    navbarCollapse.classList.remove("show");
-                });
-            });
-
-            const backToTopButton = document.getElementById("back-to-top");
-            window.addEventListener("scroll", function () {
-                if (window.scrollY > 300) {
-                    backToTopButton.style.display = "block";
-                } else {
-                    backToTopButton.style.display = "none";
-                }
-            });
-
-            backToTopButton.addEventListener("click", function () {
-                window.scrollTo({ top: 0, behavior: "smooth" });
-            });
-        });
-    </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Include Bootstrap's JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Include external JavaScript -->
+    <script src="/js/about.js"></script>
 </head>
 
 <body class="bg-gray-100">
