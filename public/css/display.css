@@ -1,134 +1,223 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --primary-color: #0d6efd;
+  --secondary-color: #6c757d;
+  --accent-color: #ffc107;
+  --text-color: #212529;
+  --bg-color: #f8f9fa;
+  --success-color: #198754;
+  --danger-color: #dc3545;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+h1 {
+  font-weight: 700;
+  color: #002f61;
+  text-align: center;
+}
 
 .container {
-    margin-top: 50px;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
+
 .table-container {
-    overflow-x: auto;
+  overflow-x: auto;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
+
+.table {
+  border-radius: 10px;
+  margin-bottom: 0;
+}
+
 .table thead th {
-    font-weight: bold;
+  font-weight: 600;
+  background-color: var(--primary-color);
+  color: #fff;
+  border-bottom: none;
+  padding: 1rem;
 }
+
 .table tbody tr:hover {
-    background-color: #f5f5f5;
+  background-color: rgba(var(--primary-color), 0.1);
+  transition: background-color 0.3s ease;
 }
+
+.table tbody td {
+  vertical-align: middle;
+  padding: 0.75rem;
+}
+
 header {
-    box-shadow: 0px 2px 4px rgba(0,0,0,0.1); 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
 }
+
 footer {
-    margin-top: 50px;
-    text-align: center;
-    background-color: #f8f9fa;
-    padding: 20px 0;
-    width: 100%;
-    bottom: 0;
+  margin-top: 50px;
+  text-align: center;
+  background-color: var(--text-color);
+  color: var(--bg-color);
+  padding: 20px 0;
+  width: 100%;
+  bottom: 0;
 }
+
 button {
-    border: none;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    padding: 10px;
-    margin-right: 5px;
-    cursor: pointer;
-  }
-  button.instagram:hover {
-    background: linear-gradient(
-      45deg,
-      #405de6,
-      #5851db,
-      #833ab4,
-      #c13584,
-      #e1306c,
-      #fd1d1d,
-      #f56040,
-      #f77737,
-      #fcaf45,
-      #ffdc80
-    );
-    color: aliceblue;
-  }
-  button.linkedin:hover {
-    background: #0f69b3;
-    color: #ffffff;
-  }
-  button.facebook:hover {
-    background: #405de6;
-    color: #ffff;
-  }
-  button.github:hover {
-    background-color: #000;
-    color: #ffff;
-  }
-  button.x:hover {
-    background-color: black;
-    fill: #ffffff;
-  }
-  button.youtube:hover {
-    background-color: #fd1d1d;
-    color: #ffffff;
-  }
-  .navbar-nav .nav-link {
-    font-size: 18px;
-    font-weight: bold;
-    color: #333;
-    padding: 10px 20px;
-    margin-right: 10px;
-    border-radius: 20px;
-    transition: all 0.3s ease;
-}        
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  padding: 10px;
+  margin-right: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+button.instagram:hover {
+  background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d, #f56040, #f77737, #fcaf45, #ffdc80);
+  color: aliceblue;
+}
+
+button.linkedin:hover {
+  background: #0f69b3;
+  color: #ffffff;
+}
+
+button.facebook:hover {
+  background: #405de6;
+  color: #ffff;
+}
+
+button.github:hover {
+  background-color: #000;
+  color: #ffff;
+}
+
+button.x:hover {
+  background-color: black;
+  fill: #ffffff;
+}
+
+button.youtube:hover {
+  background-color: #fd1d1d;
+  color: #ffffff;
+}
+
+.navbar-nav .nav-link {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-color);
+  padding: 0.5rem 1rem;
+  margin-right: 10px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.navbar-nav .nav-link::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(var(--primary-color), 0.2);
+  transition: left 0.3s ease;
+  z-index: -1;
+}
+
 .navbar-nav .nav-link:hover {
-    background-color: #f8f9fa;
-    color: #007bff;
+  color: var(--primary-color);
 }
+
+.navbar-nav .nav-link:hover::before {
+  left: 0;
+}
+
+.navbar-toggler {
+  border: none;
+  padding: 0.5rem;
+}
+
 .navbar-toggler .icon-bar {
-    display: block;
-    width: 22px;
-    height: 2px;
-    background-color: black;
-    margin-bottom: 4px;
+  display: block;
+  width: 22px;
+  height: 2px;
+  background-color: var(--text-color);
+  margin-bottom: 4px;
+  transition: transform 0.3s ease;
 }
-.navbar-toggler .icon-bar:last-child {
-    margin-bottom: 0;
+
+.navbar-toggler .icon-bar:nth-child(1) {
+  transform-origin: 0% 0%;
 }
-  @media (max-width: 768px) {
-    .table {
-      font-size: 11.5px;
-      }
-      .social a {
-        margin: 0;
-        width: 30px;
-        height: 30px;
-        line-height: 30px
-      }
-      .social a svg {
-        width: 20px;
-        height: 20px
-      }
-      .navbar-nav .nav-link {
-        font-size: 18px;
-        font-weight: bold;
-        color: #333;
-        padding: 10px 20px;
-        margin-right: 10px;
-        border-radius: 20px;
-        transition: all 0.3s ease;
-    }        
-    .navbar-nav .nav-link:hover {
-        background-color: #f8f9fa;
-        color: #007bff;
-    }
-    .navbar-toggler .icon-bar {
-        display: block;
-        width: 22px;
-        height: 2px;
-        background-color: black;
-        margin-bottom: 4px;
-    }
-    .navbar-toggler .icon-bar:last-child {
-        margin-bottom: 0;
-    }
-   .Result{
-    text-align: center;
-   }
+
+.navbar-toggler .icon-bar:nth-child(3) {
+  transform-origin: 0% 100%;
+}
+
+.navbar-toggler[aria-expanded="true"] .icon-bar:nth-child(1) {
+  transform: rotate(45deg);
+}
+
+.navbar-toggler[aria-expanded="true"] .icon-bar:nth-child(2) {
+  opacity: 0;
+}
+
+.navbar-toggler[aria-expanded="true"] .icon-bar:nth-child(3) {
+  transform: rotate(-45deg);
+}
+
+.badge {
+  font-weight: 500;
+  padding: 0.35em 0.65em;
+  border-radius: 0.25rem;
+}
+
+.badge-success {
+  background-color: var(--success-color);
+  color: #fff;
+}
+
+.badge-danger {
+  background-color: var(--danger-color);
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .table {
+    font-size: 11.5px;
   }
+
+  .social a {
+    margin: 0;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+  }
+
+  .social a svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .navbar-nav .nav-link {
+    font-size: 14px;
+    padding: 0.25rem 0.5rem;
+    margin-right: 5px;
+  }
+
+  .Result {
+    text-align: center;
+  }
+}

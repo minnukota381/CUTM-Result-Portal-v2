@@ -55,7 +55,7 @@ header {
 }
 
 .navbar-nav .nav-link:hover {
-  color: #007bff;
+  color: #00254e;
 }
 
 .navbar-nav .nav-link:hover::before {
@@ -195,7 +195,7 @@ h1 {
 footer {
     margin-top: 50px;
     text-align: center;
-    background-color: #343a40;
+    background-color: #003268;
     color: #f8f9fa;
     padding: 20px;
 }
