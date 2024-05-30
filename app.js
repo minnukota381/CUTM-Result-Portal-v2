@@ -37,6 +37,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.static(path.join(__dirname, 'public')));
 
 const convertGradeToInteger = (grade) => {
     const gradeMapping = {
@@ -156,6 +157,17 @@ app.post('/', (req, res) => {
                     });
             });
         });
+    });
+});
+
+app.post('/semesters', (req, res) => {
+    const registration = req.body.registration;
+    db.all("SELECT DISTINCT Sem FROM CUTM WHERE Reg_No = ?", [registration], (err, rows) => {
+        if (err) {
+            return res.json({ error: err.message });
+        }
+        const semesters = rows.map(row => row.Sem);
+        res.json({ semesters });
     });
 });
 
