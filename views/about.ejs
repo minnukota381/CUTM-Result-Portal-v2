@@ -1,10 +1,139 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <title>About</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Font Awesome CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Include Bootstrap's JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <title>About Us</title>
+    <link rel="icon" type="image/x-icon" href="/static/about.png">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/about.css">
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const navbarToggler = document.querySelector(".navbar-toggler");
+            const navbarCollapse = document.querySelector(".navbar-collapse");
+
+            navbarToggler.addEventListener("click", function () {
+                navbarCollapse.classList.toggle("show");
+            });
+
+            const navLinks = document.querySelectorAll(".navbar-nav .nav-link");
+            navLinks.forEach(link => {
+                link.addEventListener("click", function () {
+                    navbarCollapse.classList.remove("show");
+                });
+            });
+
+            const backToTopButton = document.getElementById("back-to-top");
+            window.addEventListener("scroll", function () {
+                if (window.scrollY > 300) {
+                    backToTopButton.style.display = "block";
+                } else {
+                    backToTopButton.style.display = "none";
+                }
+            });
+
+            backToTopButton.addEventListener("click", function () {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+            });
+        });
+    </script>
 </head>
-<body>
-    <h1>About</h1>
-    <p>This is an about page.</p>
+
+<body class="bg-gray-100">
+    <header class="bg-body-tertiary">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/about">About Us</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/"><i class="fas fa-home"></i> Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#footer"><i class="fas fa-envelope"></i> Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/admin"><i class="fas fa-user-shield"></i> Admin</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="/about"><i class="fas fa-info-circle"></i> About</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container mx-auto py-8">
+        <div class="bg-white p-8 rounded-lg shadow-lg mb-8">
+            <h2 class="section-heading mb-4">Our Mission</h2>
+            <p class="text-gray-700 mb-4">
+                At <strong>CUTM Result Portal</strong>, we strive to simplify the process of accessing and managing academic records.
+                Our mission is to provide a comprehensive and user-friendly platform for students to access their
+                semester grades effortlessly, empowering them to make informed decisions about their education.
+            </p>
+            <p class="text-gray-700 mb-4">
+                By offering accurate grade calculation, easy access to academic records, and robust administrative
+                tools, we aim to streamline the academic experience for students and administrators alike.
+            </p>
+        </div>
+
+        <div class="bg-white p-8 rounded-lg shadow-lg mb-8">
+            <h2 class="section-heading mb-4">Why Choose Us</h2>
+            <p class="text-gray-700 mb-4">
+                <strong>Accuracy:</strong> We ensure precise calculation of SGPA and CGPA, providing reliable academic data.
+            </p>
+            <p class="text-gray-700 mb-4">
+                <strong>User-Friendly Interface:</strong> Our intuitive interface makes it easy to navigate and access the information you need.
+            </p>
+            <p class="text-gray-700 mb-4">
+                <strong>Security:</strong> We prioritize the security of user data, implementing robust measures to safeguard sensitive information.
+            </p>
+            <p class="text-gray-700 mb-4">
+                Furthermore, this website offers the advantage of providing accurate CGPA and SGPA calculations even before the official release on the college's ERP system. So there is no need to wait for the ERP's official release to view their original CGPA and SGPA. This enables students to access their academic standing promptly and plan their educational journey effectively.
+            </p>
+        </div>
+
+        <div class="bg-white p-8 rounded-lg shadow-lg mb-8">
+            <h2 class="section-heading mb-4">About Me</h2>
+            <div class="team-member">
+                <h3 class="text-xl font-bold mb-2">Minnu Madan Kota</h3>
+                <p class="text-gray-700 mb-0"><strong>[Centurion University Of Technology and Management 2022-2026]</strong></p><br>
+                <p class="text-gray-700 mb-4">
+                    I am the driving force behind the <strong>CUTM Result Portal</strong>. With a steadfast commitment to excellence, I lead our team in ensuring that our platform fulfills the needs of our users and provides them with a seamless experience.
+                </p>
+                <p class="text-gray-700 mb-4">
+                    From conceptualization to implementation and ongoing maintenance, I oversee every aspect of our website's operation to guarantee its success. Through strategic planning and meticulous attention to detail, I strive to maintain the highest standards of quality and efficiency.
+                </p>
+                <p class="text-gray-700 mb-4">
+                    This website was developed with the intention of providing convenience and ease of access to all users seeking to search and view results. The design of the website is intentionally kept simple to prioritize effectiveness over visual complexity. I have deliberately chosen not to incorporate excessive colors or intricate designs, opting instead for a minimalist approach to ensure clarity and functionality.
+                </p>
+            </div>
+        </div>
+
+    <footer id="footer" class="bg-body-tertiary py-4">
+        <div class="container mx-auto text-center">
+            <p class="text-body-secondary">© 2023 CUTM Result Portal. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <button id="back-to-top" title="Back to top"><i class="bi bi-arrow-up"></i></button>
 </body>
+
 </html>
