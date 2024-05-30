@@ -1,16 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+:root {
+    --primary-color: #007bff;
+    --secondary-color: #6c757d;
+    --accent-color: #ffc107;
+    --text-color: #343a40;
+    --bg-color: #f8f9fa;
+  }
 body {
   font-family: "Poppins", sans-serif;
-  background-color: #f8f9fa;
-  color: #343a40;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 header {
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-  background-color: #ffffff;
-}
-
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+   }
 .navbar {
   padding: 1rem;
 }
@@ -103,11 +112,6 @@ footer {
  border: none;
 }
 
-header {
- box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
- background-color: #ffffff;
-}
-
 .btn-primary {
  border-radius: 30px;
  width: 50%;
@@ -125,75 +129,9 @@ header {
  border-color: #0062cc;
 }
 
-button {
- border: none;
- border-radius: 50%;
- width: 50px;
- height: 50px;
- padding: 10px;
- margin-right: 5px;
- cursor: pointer;
- transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-button.instagram:hover {
- background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d, #f56040, #f77737, #fcaf45, #ffdc80);
- color: aliceblue;
-}
-
-button.linkedin:hover {
- background: #0f69b3;
- color: #ffffff;
-}
-
-button.facebook:hover {
- background: #405de6;
- color: #ffff;
-}
-
-button.github:hover {
- background-color: #000;
- color: #ffff;
-}
-
-button.x:hover {
- background-color: black;
- fill: #ffffff;
-}
-
-button.youtube:hover {
- background-color: #fd1d1d;
- color: #ffffff;
-}
-
-.navbar-nav .nav-link {
- font-size: 18px;
- font-weight: bold;
- color: #343a40;
- padding: 10px 20px;
- margin-right: 10px;
- border-radius: 20px;
- transition: all 0.3s ease;
-}
-
-.navbar-nav .nav-link:hover {
- background-color: #f8f9fa;
- color: #007bff;
-}
-
-.navbar-toggler .icon-bar {
- display: block;
- width: 22px;
- height: 2px;
- background-color: black;
- margin-bottom: 4px;
-}
-
 .navbar-toggler .icon-bar:last-child {
  margin-bottom: 0;
 }
-
-/* Additional Styles */
 
 h1 {
  font-weight: 700;
@@ -211,3 +149,74 @@ h1 {
 .card-body {
  padding: 30px;
 }
+
+.social-links a {
+    color: var(--bg-color);
+    font-size: 24px;
+    margin-right: 10px;
+    transition: color 0.3s ease;
+  }
+  
+  .social-links a:hover {
+    color: var(--accent-color);
+  }
+  
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  .text-primary {
+    color: var(--primary-color);
+  }
+  
+  .text-secondary {
+    color: var(--secondary-color);
+  }
+  
+  .text-accent {
+    color: var(--accent-color);
+  }
+  
+  .bg-primary {
+    background-color: var(--primary-color);
+  }
+  
+  .bg-secondary {
+    background-color: var(--secondary-color);
+  }
+  
+  .bg-accent {
+    background-color: var(--accent-color);
+  }
+
+@media (max-width: 767.98px) {
+    .container {
+      margin-top: 20px;
+    }
+  
+    .row {
+      justify-content: center;
+    }
+  
+    .card {
+      max-width: 90%;
+      margin: 0 auto;
+    }
+  
+    footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin-top: 0;
+    }
+  }
