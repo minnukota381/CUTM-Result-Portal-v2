@@ -6,7 +6,8 @@
     --accent-color: #ffc107;
     --text-color: #343a40;
     --bg-color: #f8f9fa;
-  }
+}
+
 body {
   font-family: "Poppins", sans-serif;
   background-color: var(--bg-color);
@@ -19,7 +20,8 @@ body {
 header {
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
     background-color: #ffffff;
-   }
+}
+
 .navbar {
   padding: 1rem;
 }
@@ -29,7 +31,7 @@ header {
 }
 
 .navbar-nav .nav-link {
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 600;
   color: #343a40;
   padding: 0.5rem 1rem;
@@ -98,14 +100,6 @@ header {
  margin-top: 30px;
 }
 
-footer {
- margin-top: 50px;
- text-align: center;
- background-color: #343a40;
- color: #f8f9fa;
- padding: 20px;
-}
-
 .card {
  border-radius: 25px;
  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
@@ -115,8 +109,8 @@ footer {
 .btn-primary {
  border-radius: 30px;
  width: 50%;
- background-color: #007bff;
- border-color: #007bff;
+ background-color: #003c7c;
+ border-color: #002a56;
  color: #fff;
  display: block;
  margin: 0 auto;
@@ -125,8 +119,8 @@ footer {
 }
 
 .btn-primary:hover {
- background-color: #0069d9;
- border-color: #0062cc;
+ background-color: #003268;
+ border-color: #00336a;
 }
 
 .navbar-toggler .icon-bar:last-child {
@@ -135,7 +129,7 @@ footer {
 
 h1 {
  font-weight: 700;
- color: #007bff;
+ color: #002f61;
 }
 
 .form-control {
@@ -155,49 +149,57 @@ h1 {
     font-size: 24px;
     margin-right: 10px;
     transition: color 0.3s ease;
-  }
+}
   
-  .social-links a:hover {
+.social-links a:hover {
     color: var(--accent-color);
-  }
+}
   
-  @keyframes fadeIn {
+@keyframes fadeIn {
     0% {
       opacity: 0;
     }
     100% {
       opacity: 1;
     }
-  }
+}
   
-  .animate-fade-in {
+.animate-fade-in {
     animation: fadeIn 0.5s ease-in-out;
-  }
+}
   
-  .text-primary {
+.text-primary {
     color: var(--primary-color);
-  }
+}
   
-  .text-secondary {
+.text-secondary {
     color: var(--secondary-color);
-  }
+}
   
-  .text-accent {
+.text-accent {
     color: var(--accent-color);
-  }
+}
   
-  .bg-primary {
+.bg-primary {
     background-color: var(--primary-color);
-  }
+}
   
-  .bg-secondary {
+.bg-secondary {
     background-color: var(--secondary-color);
-  }
+}
   
-  .bg-accent {
+.bg-accent {
     background-color: var(--accent-color);
-  }
+}
 
+footer {
+    margin-top: 50px;
+    text-align: center;
+    background-color: #343a40;
+    color: #f8f9fa;
+    padding: 20px;
+}
+   
 @media (max-width: 767.98px) {
     .container {
       margin-top: 20px;
@@ -219,4 +221,4 @@ h1 {
       right: 0;
       margin-top: 0;
     }
-  }
+}
