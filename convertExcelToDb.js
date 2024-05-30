@@ -8,7 +8,7 @@ const dbPath = 'database.db';
 
 const db = new sqlite3.Database(dbPath, (err) => {
     if (err) {
-        console.error(err.message);
+        console.error('Error connecting to SQLite database:', err.message);
         process.exit(1);
     }
     console.log('Connected to the SQLite database.');
@@ -37,28 +37,72 @@ const convertExcelToDb = async () => {
     try {
         const data = readExcelFiles(directory);
 
+        if (data.length === 0) {
+            console.error('No data found in Excel files.');
+            return;
+        }
+
+        console.log('First row of data:', data[0]);
+
         db.serialize(() => {
-            db.run('DROP TABLE IF EXISTS CUTM');
-
-            const columns = Object.keys(data[0]).map(key => `${key} TEXT`).join(', ');
-            db.run(`CREATE TABLE CUTM (${columns})`);
-
-            const placeholders = Object.keys(data[0]).map(() => '?').join(', ');
-            const insertStmt = db.prepare(`INSERT INTO CUTM VALUES (${placeholders})`);
-
-            data.forEach(row => {
-                const values = Object.values(row);
-                insertStmt.run(values);
+            db.run('DROP TABLE IF EXISTS CUTM', (err) => {
+                if (err) {
+                    console.error('Error dropping existing table:', err.message);
+                } else {
+                    console.log('Dropped existing table, if it existed.');
+                }
             });
 
-            insertStmt.finalize();
-        });
+            const columns = Object.keys(data[0]).map(key => `${key} TEXT`).join(', ');
+            const createTableSQL = `CREATE TABLE CUTM (${columns})`;
+            console.log('Create Table SQL:', createTableSQL);
 
-        console.log('Excel files successfully combined and converted to a single SQLite table.');
+            db.run(createTableSQL, (err) => {
+                if (err) {
+                    console.error('Error creating table:', err.message);
+                    return;
+                }
+
+                const placeholders = Object.keys(data[0]).map(() => '?').join(', ');
+                const insertSQL = `INSERT INTO CUTM VALUES (${placeholders})`;
+                const insertStmt = db.prepare(insertSQL);
+                console.log('Insert SQL:', insertSQL);
+
+                db.parallelize(() => {
+                    data.forEach(row => {
+                        const values = Object.values(row);
+                        if (values.length !== Object.keys(data[0]).length) {
+                            console.error('Mismatch in number of columns and values:', values);
+                        } else {
+                            console.log('Inserting row:', values);
+                            insertStmt.run(values, (err) => {
+                                if (err) {
+                                    console.error('Error inserting row:', err.message);
+                                }
+                            });
+                        }
+                    });
+
+                    insertStmt.finalize((err) => {
+                        if (err) {
+                            console.error('Error finalizing statement:', err.message);
+                        } else {
+                            console.log('Insert statement finalized.');
+                        }
+
+                        db.close((err) => {
+                            if (err) {
+                                console.error('Error closing database:', err.message);
+                            } else {
+                                console.log('Database connection closed.');
+                            }
+                        });
+                    });
+                });
+            });
+        });
     } catch (error) {
         console.error('Error converting Excel files to SQLite:', error);
-    } finally {
-        db.close();
     }
 };
 

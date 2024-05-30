@@ -59,9 +59,17 @@ const calculateSGPA = (result) => {
 
     result.forEach(row => {
         const creditsParts = row.Credits.split('+').map(Number);
-        totalCredits += creditsParts.reduce((sum, part) => sum + part, 0);
-        const grade = convertGradeToInteger(row.Grade);
-        totalWeightedGrades += grade * creditsParts.reduce((sum, part) => sum + part, 0);
+        const sumCredits = creditsParts.reduce((sum, part) => sum + part, 0);
+        totalCredits += sumCredits;
+
+        let grade;
+        if (isNaN(row.Grade)) {
+            grade = convertGradeToInteger(row.Grade);
+        } else {
+            grade = parseFloat(row.Grade);
+        }
+
+        totalWeightedGrades += grade * sumCredits;
     });
 
     return totalCredits ? totalWeightedGrades / totalCredits : 0;
@@ -78,9 +86,17 @@ const calculateCGPA = (registration, name, callback) => {
 
         rows.forEach(row => {
             const creditsParts = row.Credits.split('+').map(Number);
-            totalCredits += creditsParts.reduce((sum, part) => sum + part, 0);
-            const grade = convertGradeToInteger(row.Grade);
-            totalWeightedGrades += grade * creditsParts.reduce((sum, part) => sum + part, 0);
+            const sumCredits = creditsParts.reduce((sum, part) => sum + part, 0);
+            totalCredits += sumCredits;
+
+            let grade;
+            if (isNaN(row.Grade)) {
+                grade = convertGradeToInteger(row.Grade);
+            } else {
+                grade = parseFloat(row.Grade);
+            }
+
+            totalWeightedGrades += grade * sumCredits;
         });
 
         const cgpa = totalCredits ? totalWeightedGrades / totalCredits : 0;
