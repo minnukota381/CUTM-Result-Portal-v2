@@ -106,7 +106,7 @@ header {
  border: none;
 }
 
-.btn-primary {
+.btn {
  border-radius: 30px;
  width: 50%;
  background-color: #003c7c;
@@ -118,9 +118,10 @@ header {
  transition: background-color 0.3s ease;
 }
 
-.btn-primary:hover {
+.btn:hover {
  background-color: #003268;
  border-color: #00336a;
+ color: #fff;
 }
 
 .navbar-toggler .icon-bar:last-child {
