@@ -2,6 +2,22 @@ body {
     background-color: #f8f9fa;
 }
 
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #d6d2c9;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #003d82;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #00254e;
+  }
+
 .card {
     border: none;
     border-radius: 30px;
