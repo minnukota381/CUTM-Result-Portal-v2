@@ -1,0 +1,10 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/" # Location of package.json and package-lock.json
+    schedule:
+      interval: "weekly" # Frequency of updates: daily, weekly, monthly
+  - package-ecosystem: "github-actions"
+    directory: "/" # Location of the action.yml or workflows
+    schedule:
+      interval: "weekly"
